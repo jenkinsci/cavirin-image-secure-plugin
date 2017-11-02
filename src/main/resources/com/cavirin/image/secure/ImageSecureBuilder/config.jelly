@@ -1,0 +1,39 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+  -->
+
+  <!--
+    Creates a text field that shows the value of the "name" property.
+    When submitted, it will be passed to the corresponding constructor parameter.
+  -->
+  <f:entry title="Name(Sample name for Triggering your test)" field="name">
+    <f:textbox />
+  </f:entry>
+   <f:entry title="PulsarUsername(Input the Pulsar user name accurately)" field="pulsarusername">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="PulsarPassword(Input the Pulsar password accurately)" field="pulsarpassword">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="Dockerusername(Input the Docker username accurately)" field="dockerusername">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="DockerPassword(Input the Docker password accurately)" field="dockerpassword">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="ImageName(Input the Image name you want to scan accurately)" field="imagename">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="PolicyPack(Provide Image_CDIH for Image Hardening or Image_CDICVESCAN for Patches)" field="policypack">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="Tag(Input the tag value in the repository accurately)" field="tag">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="Ipaddress(Input the Ipaddress of the Pulsar box accurately)" field="ipaddress">
+    <f:textbox />
+  </f:entry>
+</j:jelly>
