@@ -5,7 +5,7 @@ Cavirin Security Platform helps DevOps to build continuous security into organiz
  
 Cavirin Image Secure:
 
-Cavirin Image Secure is a Jenkins plugin which can be used as an security gate for an image build. The plugin connects to Cavirin Platform and orchestrates security assessments for docker images. User defines docker image name and the security framework used to assess the image. By return he receives an overall score for assessment, as well a list of failed policies. Based on this information, Jenkins can pass or fail the security gate automatically.  
+Cavirin Image Secure is a Jenkins plugin which can be used as a security gate for an image build. The plugin connects to Cavirin Platform and orchestrates security assessments for docker images. User defines docker image name and the security framework used to assess the image. By return he receives an overall score for assessment, as well a list of failed policies. Based on this information, Jenkins can pass or fail the security gate automatically.  
 
 Cavirin Image Secure is based on shell script which is wrapped in a java program. The plugin is available for download at Cavirin’s public git repository and is compiled with Maven. The resulted hudson file (.hpi) can then be uploaded  into the Jenkins server. Cavirin Image Secure is published under MIT license and can be freely modified and distributed.
 
