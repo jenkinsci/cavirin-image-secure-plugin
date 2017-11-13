@@ -153,7 +153,7 @@ public class ImageSecureBuilder extends Builder {
 		}
 
 		public String getDisplayName() {
-			return "Cavirin Image Scan";
+			return "Cavirin image secure";
 		}
 
 		@Override

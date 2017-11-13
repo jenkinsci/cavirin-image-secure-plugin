@@ -179,7 +179,7 @@ if [ "$score" -ge 80 ] ; then
 else
  logSCREEN '****************************************'
  logSCREEN 'score':$score
- logSCREEN 'Reason: It did not meet the global threshold of 75 and hence this is marked as failed'
+ logSCREEN 'Reason: It did not meet the global threshold of 80 and hence this is marked as failed'
  logSCREEN '****************************************'
  exit 1;
 fi
