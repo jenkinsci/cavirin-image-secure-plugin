@@ -12,18 +12,18 @@ Cavirin Image Secure is based on shell script which is wrapped in a java program
 Accessing Cavirin Image Secure:
 
 Go to https://github.com/cavirin/cavirin-image-secure and click clone or download. Copy the link into your shell:
-'''
+```
 git clone https://github.com/cavirin/cavirin-image-secure
-'''
+```
 In order to compile the plugin, move into cavirin-image-secure directory and build the plugin using maven :
-'''
+```
 cd cavirin-image-secure
 mvn clean install
-'''
+```
 Once maven has completed, check that the hudson file is available: 
-'''
+```
 ls -l cavirin-image–secure.hpi
-'''
+```
 Move into your Jenkins server and 
 Go to plugin manager
 Click ‘Advanced’
