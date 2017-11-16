@@ -4,45 +4,57 @@
 	<parent>
 		<groupId>org.jenkins-ci.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>1.424</version><!-- which version of Jenkins is this plugin built 
-			against? -->
+		<version>2.27</version>
+		<relativePath />
 	</parent>
-
-	<groupId>cavirin-image-secure</groupId>
-	<artifactId>cavirin-image-secure</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	
+	<groupId>Cavirin-Image-Secure</groupId>
+	<artifactId>Cavirin-Image-Secure</artifactId>
 	<packaging>hpi</packaging>
-
-	<!-- get every artifact through repo.jenkins-ci.org, which proxies all the 
-		artifacts that we need -->
+	<version>1.0-SNAPSHOT</version>
+	
+	<developers>
+		<developer>
+			<name>Sathwik Sharma</name>
+			<email>satwik.sharma792@gmail.com</email>
+			<roles>
+				<role>developer</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>Rakesh Polpeddi</name>
+			<email>rakeshpolepeddi@gmail.com</email>
+			<roles>
+				<role>developer</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
 
 	<repositories>
 		<repository>
 			<id>repo.jenkins-ci.org</id>
-			<url>http://repo.jenkins-ci.org/public/</url>
+			<url>https://repo.jenkins-ci.org/public/</url>
 		</repository>
 	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>repo.jenkins-ci.org</id>
-			<url>http://repo.jenkins-ci.org/public/</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-					</execution>
-				</executions>
+				<groupId>org.jenkins-ci.tools</groupId>
+				<artifactId>maven-hpi-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<compatibleSinceVersion>2.57.2</compatibleSinceVersion>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.jenkins-ci.org</id>
+			<url>https://repo.jenkins-ci.org/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
