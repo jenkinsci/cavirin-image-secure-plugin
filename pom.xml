@@ -8,8 +8,10 @@
 		<relativePath />
 	</parent>
 	
-	<groupId>Cavirin-Image-Secure</groupId>
-	<artifactId>Cavirin-Image-Secure</artifactId>
+	<groupId>cavirin-image-secure</groupId>
+	<artifactId>cavirin-image-secure</artifactId>
+	<description>Cavirin Image Secure for Docker Image Scanning</description>
+	<name>Cavirin Image Secure Plugin</name>
 	<packaging>hpi</packaging>
 	<version>1.0-SNAPSHOT</version>
 	
