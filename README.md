@@ -11,7 +11,7 @@ Cavirin Image Secure is based on shell script which is wrapped in a java program
 
 Accessing Cavirin Image Secure:
 
-Go to https://github.com/cavirin/cavirin-image-secure and click clone or download. Copy the link into your shell:
+Go to https://github.com/jenkinsci/cavirin-image-secure-plugin and click clone or download. Copy the link into your shell:
 ```
 git clone https://github.com/cavirin/cavirin-image-secure
 ```
