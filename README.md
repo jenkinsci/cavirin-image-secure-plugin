@@ -38,7 +38,7 @@ Next:
    -	Cavirin Platform Password
    -	Registry User Name
    -	Registry Password
-   -	The fill URL for the image in the registry (https:// docker.io/repo/ubuntu:latest)
+   -	The URL for the image in the registry (https:// docker.io/repo/ubuntu:latest)
    -	The Policy Pack to scan
    -	Tag (a part of the image name in the registry, like “ubuntu:latest”)
    -	Cavirin Platform Address
