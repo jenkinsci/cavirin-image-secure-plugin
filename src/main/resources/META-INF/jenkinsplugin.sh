@@ -107,22 +107,22 @@ done
 
 Basic_token=$( echo -n $userName:$passWord  | base64 )
 echo "The token generated is" :${Basic_token}
-OAUTH_OBJ=`curl -k -X POST -H  "Authorization:Basic ${Basic_token}" -H "Content-Type:application/json" http://$IPADDRESS:8080/arap-server/api/v0/login`;
+OAUTH_OBJ=`curl -k -X POST -H  "Authorization:Basic ${Basic_token}" -H "Content-Type:application/json" https://$IPADDRESS/arap-server/api/v0/login`;
 echo "The Oauth related information for your scan is": $OAUTH_OBJ
 ACCESS_TOKEN=$(echo -n  $OAUTH_OBJ | jq -r '.access_token')
 REFRESH_TOKEN=$(echo -n $OAUTH_OBJ | jq -r '.refresh_token')
 
-uuid=`curl -k -X POST --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" http://$IPADDRESS:8080/arap-server/api/v0/dockerimages --data '{"imageName":"docker.io/'$dUserName'/'$tag':'$imagename'","username":"'$dUserName'","password":"'$dPassWord'"}'|jq -r '.id'`;
+uuid=`curl -k -X POST --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" https://$IPADDRESS/arap-server/api/v0/dockerimages --data '{"imageName":"docker.io/'$dUserName'/'$tag':'$imagename'","username":"'$dUserName'","password":"'$dPassWord'"}'|jq -r '.id'`;
 logSCREEN "The Docker image is created with id" :$uuid
 logSCREEN '*********************************************'
 logSCREEN "Fetching CAVIRIN-Pulsar's Policypacks based on applicability"
 logSCREEN "The Policy Pack selected for the Docker Image scan is": $guideline
 logSCREEN '********************************************'
-policypacks=`curl -k --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" http://$IPADDRESS:8080/arap-server/api/v0/dockerimages/$uuid/scan --data '{"policypacks":["root.'$guideline'"],"scan":true}'`;
+policypacks=`curl -k --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" https://$IPADDRESS/arap-server/api/v0/dockerimages/$uuid/scan --data '{"policypacks":["root.'$guideline'"],"scan":true}'`;
 sleep 180
 logSCREEN '*********************************************'
 logSCREEN "Please wait for few moments as the Docker Image you are interested is being scanned"
-reports=`curl -k --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" http://$IPADDRESS:8080/arap-server/api/v0/reports/assessment/0/0 --data '{"policygroups":["root.'$guideline'"]}'|jq -r '.assessments'`;
+reports=`curl -k --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" https://$IPADDRESS/arap-server/api/v0/reports/assessment/0/0 --data '{"policygroups":["root.'$guideline'"]}'|jq -r '.assessments'`;
 load_Data(){
 cat<<EOF
 {
@@ -156,11 +156,11 @@ echo 'scan id for the docker '$scanid
 echo "The Scan results of the Docker Image will be listed very shortly"
 sleep 180
 #score=`curl -k --header "Authorization:Bearer $ACCESS_TOKEN" http://$IPADDRESS:3000/context/getScoreByScanId/$scanid?policypack=$guideline |#jq -r '.score'`; https://54.183.237.183/context/getScoreByDockerImage?imageid=10
-score=`curl -k --header "Authorization:Bearer $ACCESS_TOKEN" http://$IPADDRESS:3000/context/getScoreByDockerImage?imageid=$uuid |jq -r '.score'`;
+score=`curl -k --header "Authorization:Bearer $ACCESS_TOKEN" https://$IPADDRESS/context/getScoreByDockerImage?imageid=$uuid |jq -r '.score'`;
 echo 'The score fetched after the scan: '$score
 logSCREEN "Here are the failed results of the Policies that are evaluated againist the image scanned"
 logSCREEN '**************************************************'
-policies=`curl -k -X POST --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" http://$IPADDRESS:8080/arap-server/api/v0/dockerimages/scanresults/$scanid/50/50 --data '{"policypacks":["'$guideline'"],"state":["Fail"]}'`
+policies=`curl -k -X POST --header "Content-Type:application/json" --header "Authorization:Bearer $ACCESS_TOKEN" https://$IPADDRESS/arap-server/api/v0/dockerimages/scanresults/$scanid/50/50 --data '{"policypacks":["'$guideline'"],"state":["Fail"]}'`
 echo $policies | python -mjson.tool
 logSCREEN "Here are the results of the Policies that are evaluated againist the image scanned"
 logSCREEN '**************************************************'
